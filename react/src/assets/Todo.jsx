@@ -7,10 +7,17 @@
 //         </>
 //     )
 // }
-// conditional rendering
+// conditional rendering  
+// export default function Todo({task , Istrue}){
+//     if(Istrue){
+//         return <li> finaly kaj sesh : {task}</li>
+//     }
+//     return <li> i want to start it now and: i {task}</li>
+// }
 export default function Todo({task , Istrue}){
     if(Istrue){
         return <li> finaly kaj sesh : {task}</li>
     }
     return <li> i want to start it now and: i {task}</li>
 }
+
