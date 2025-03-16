@@ -3,8 +3,9 @@ import Todo from './assets/Todo';
 import Actor from "./assets/Actor";
 import Singer from "./assets/Singer";
 
+
 function App() {
-  const actors =['chris','scarlet','chris','mark']
+  // const actors =['chris','scarlet','chris','mark']
 
   const singers =[ 
     {name: 'shawn', age: 25}, 
@@ -19,10 +20,10 @@ function App() {
       {/* <Todo task="have to learn and study at the same time" Istrue ={false}></Todo>
       <Student name="shawn" score="99"></Student> */}
    
-      <Actor name =  {"rdj "}></Actor>
+      {/* <Actor name =  {"rdj "}></Actor>
         {
           actors.map(actor => <Actor name = {actor}></Actor>)
-        }
+        } */}
         <Singer name ={'sakira'} age ={30} > </Singer>
         {
         singers.map((singer, index) => <Singer key={index} name={singer.name} age={singer.age}></Singer>)
