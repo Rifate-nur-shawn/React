@@ -1,5 +1,5 @@
 import "./App.css";
-
+import Todo from './assets/Todo';
 function App() {
   return (
     <>
@@ -7,54 +7,48 @@ function App() {
       <Person></Person>
       <Person></Person>
       <Person></Person> */}
-      <Student></Student>
+      <Todo task="have to learn and study at the same time" Istrue ={false}></Todo>
+      <Student name="shawn" score="99"></Student>
     </>
   );
 }
-//  function Person(){
 
-//    }
-// const money=500;
-// const person={name:'Sakib', age:30}
-// return <h2>name: {person.name} age: {person.age+money}</h2>
-//  }
+function Student(props) {
+  console.log(props);
 
-function Student() {
   const personStyle = {
     border: "2px solid red",
     margin: "5px",
     padding: "10px",
-    width: "25%"
-  }
-  
+    width: "25%",
+  };
+
   const containerStyle = {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    width: "100%"
-  }
-  
-  return (
+    width: "100%",
+  };
+
+  return ( 
     <div style={containerStyle}>
       <div style={personStyle}>
         <h2>Student</h2>
-        <h3>name: John</h3>
-        <h3>age: 30</h3>
+        <h3>name: {props.name}</h3>
+        <h3>score: {props.score}</h3>
       </div>
       <div style={personStyle}>
         <h2>Student</h2>
-        <h3>name: John</h3>
-        <h3>age: 30</h3>
+        <h3>name: {props.name}</h3>
+        <h3>score: {props.score}</h3>
       </div>
       <div style={personStyle}>
         <h2>Student</h2>
-        <h3>name: John</h3>
-        <h3>age: 30</h3>
+        <h3>name: {props.name}</h3>
+        <h3>score: {props.score}</h3>
       </div>
     </div>
-  )
+  );
 }
-
-
 
 export default App;
