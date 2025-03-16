@@ -7,7 +7,7 @@
 //         </>
 //     )
 // }
-// conditional rendaring
+// conditional rendering
 export default function Todo({task , Istrue}){
     if(Istrue){
         return <li> finaly kaj sesh : {task}</li>

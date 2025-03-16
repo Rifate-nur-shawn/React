@@ -9,6 +9,7 @@ function App() {
       <Person></Person> */}
       <Todo task="have to learn and study at the same time" Istrue ={false}></Todo>
       <Student name="shawn" score="99"></Student>
+      
     </>
   );
 }
