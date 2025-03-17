@@ -1,83 +1,44 @@
+import { useState, useEffect } from "react";
 import "./App.css";
-import Todo from './assets/Todo';
-import Actor from "./assets/Actor";
-import Singer from "./assets/Singer";
-
+import BookStore from "./assets/BookStore";
 
 function App() {
-  // const actors =['chris','scarlet','chris','mark']
+  const [error, setError] = useState(null);
+  const books = [
+    { id: 1, name: "java", price: 100 },
+    { id: 2, name: "bangla", price: 300 },
+    { id: 3, name: "eng", price: 3300 },
+    { id: 4, name: "cpp", price: 400 },
+  ];
 
-  const singers =[ 
-    {name: 'shawn', age: 25}, 
-    {name: 'justin', age: 30},
-    {name: 'sakira', age: 35}]
+  useEffect(() => {
+    console.log("App component mounted");
+    console.log("Books data:", books);
+  }, []);
 
-   return( <>
-      {/* <h1> vite + java</h1>
-      <Person></Person>
-      <Person></Person>
-      <Person></Person> */}
-      {/* <Todo task="have to learn and study at the same time" Istrue ={false}></Todo>
-      <Student name="shawn" score="99"></Student> */}
-   
-      {/* <Actor name =  {"rdj "}></Actor>
-        {
-          actors.map(actor => <Actor name = {actor}></Actor>)
-        } */}
-        <Singer name ={'sakira'} age ={30} > </Singer>
-        {
-        singers.map((singer, index) => <Singer key={index} name={singer.name} age={singer.age}></Singer>)
-        }
-      
-    </>
-  );
+  try {
+    return (
+      <div
+        className="app-container"
+        style={{ padding: "20px", border: "2px solid black" }}
+      >
+        <h1>Book Store Application</h1>
+        {error ? (
+          <div style={{ color: "red" }}>Error: {error.message}</div>
+        ) : (
+          <BookStore books={books} />
+        )}
+      </div>
+    );
+  } catch (err) {
+    console.error("Rendering error:", err);
+    setError(err);
+    return (
+      <div style={{ color: "red", padding: "20px" }}>
+        Something went wrong: {err.message}
+      </div>
+    );
+  }
 }
-
-// function Student(props) {
-//   console.log(props);
-
-//   const personStyle = {
-//     border: "2px solid red",
-//     margin: "5px",
-//     padding: "10px",
-//     width: "25%",
-//   };
-
-//   const containerStyle = {
-//     display: "flex",
-//     flexDirection: "row",
-//     justifyContent: "space-between",
-//     width: "100%",
-//   };
-
-//   return ( 
-//     <div style={containerStyle}>
-//       <div style={personStyle}>
-//         <h2>Student</h2>
-//         <h3>name: {props.name}</h3>
-//         <h3>score: {props.score}</h3>
-//       </div>
-//       <div style={personStyle}>
-//         <h2>Student</h2>
-//         <h3>name: {props.name}</h3>
-//         <h3>score: {props.score}</h3>
-//       </div>
-//       <div style={personStyle}>
-//         <h2>Student</h2>
-//         <h3>name: {props.name}</h3>
-//         <h3>score: {props.score}</h3>
-//       </div>
-//     </div>
-//   );
-//   // function Actor(props){ 
-//   //   console.log(props);
-//   //     const Actorstyle = {
-//   //     border: "2px solid red",
-//   //     margin: "5px",
-//   //     padding: "10px",
-//   //     }
-    
-//   // }
-// }
 
 export default App;
