@@ -1,85 +1,28 @@
-import { useState, useEffect } from "react";
-import "./App.css";
-import BookStore from "./assets/BookStore";
+import React from "react";
 import Lib from "./assets/Lib";
-import Add from "./assets/Add";
 import TopSaleBooks from "./assets/TopSaleBooks";
 
 function App() {
-  const [error, setError] = useState(null);
-  const [theme, setTheme] = useState("darkblue");
-  const books = [
-    { id: 1, name: "java", price: 100 },
-    { id: 2, name: "bangla", price: 300 },
-    { id: 3, name: "eng", price: 3300 },
-    { id: 4, name: "cpp", price: 400 },
-  ];
+  return (
+    <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <header className="text-center mb-8">
+        <h1 className="text-3xl font-bold text-blue-800">Library Dashboard</h1>
+        <p className="text-gray-600 mt-2">Your one-stop book portal</p>
+      </header>
 
-  useEffect(() => {
-    console.log("App component mounted");
-    console.log("Books data:", books);
-  }, []);
-
-  const changeTheme = () => {
-    setTheme(theme === "darkblue" ? "darkgreen" : "darkblue");
-  };
-
-  try {
-    return (
-      <div
-        className="app-container"
-        style={{ 
-          padding: "20px", 
-          border: "2px solid black",
-          backgroundColor: "#f5f5f5",
-          borderRadius: "10px",
-          maxWidth: "900px",
-          margin: "0 auto"
-        }}
-      >
-        <h1 style={{ 
-          textAlign: "center", 
-          color: theme,
-          fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-          borderBottom: `2px solid ${theme}`,
-          paddingBottom: "10px"
-        }}>Book Store Application</h1>
-        
-        <button 
-          onClick={changeTheme}
-          style={{
-            backgroundColor: theme,
-            color: "white",
-            border: "none",
-            padding: "8px 16px",
-            borderRadius: "4px",
-            cursor: "pointer",
-            marginBottom: "15px"
-          }}
-        >
-          Change Theme
-        </button>
-
-        {error ? (
-          <div style={{ color: "red" }}>Error: {error.message}</div>
-        ) : (
-          <>
-            <BookStore books={books} />
-            <Lib themeColor={theme} />
-            <Add sal= "ninetyk" />
-          </>
-        )}
+      <div className="grid gap-6 md:grid-cols-2">
+        <Lib themeColor="bg-indigo-800" />
+        <TopSaleBooks bgColor="bg-blue-800" textColor="text-white" />
       </div>
-    );
-  } catch (err) {
-    console.error("Rendering error:", err);
-    setError(err);
-    return (
-      <div style={{ color: "red", padding: "20px" }}>
-        Something went wrong: {err.message}
+
+      <div className="mt-8 p-4 bg-gray-100 rounded-lg text-center">
+        <p className="text-gray-700">
+          If you're seeing this message but not the components, make sure
+          Tailwind CSS is properly installed.
+        </p>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default App;
